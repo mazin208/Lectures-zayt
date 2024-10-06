@@ -13,6 +13,8 @@ A simple script to summarize an mp3 lecture using Openai Whisper for speech reco
 3. it'll generate lecture.docx file
    
 # Note
-you can change the maximum and minimum number of generated summary using --max_length and --min_length arguments.
+* you can change the maximum and minimum number of generated summary using --max_length and --min_length arguments.
 
 `python app.py lecture.mp3 --max_length 1000 --min_length 700`
+
+* because of the limit of 1024 chunks size the code splits the text into 2 parts then summarize.

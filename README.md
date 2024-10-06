@@ -1,20 +1,27 @@
 # Lectures-zayt
-A simple script to summarize an mp3 lecture using Openai Whisper for speech recognition and Bart (Facebook model) for summary then export the original text + the summary to a word file.
+A simple script to summarize an mp3 lecture using [Openai Whisper](https://github.com/openai/whisper) model for audio transcription and the [BART](https://huggingface.co/facebook/bart-large-cnn) model for text summarization .
+The script transcribes an audio file, generates a summary of the transcription, and saves both the transcription and summary to a Word document.
 
-# How to use
-1. install requirements
+## Requirements
 
-`pip install -r requirements.txt`
+- Python 3.7 or higher
 
-2. run app.py and pass it the lecture file.
+To install the required libraries, you can run:
 
-`python app.py lecture.mp3`
+```
+pip install whisper transformers torch python-docx
 
-3. it'll generate lecture.docx file
-   
-# Note
-* you can change the maximum and minimum number of generated summary using --max_length and --min_length arguments.
+## Usage
+To run the script, use the following command:
+```python final.py <audio_file> [--max_length MAX_LENGTH] [--min_length MIN_LENGTH]```
 
-`python app.py lecture.mp3 --max_length 1000 --min_length 700`
+## Arguments
+audio_file (required): Path to the audio file (e.g., lecture.mp3).
+--max_length (optional): The maximum length of the summary. Default is 500.
+--min_length (optional): The minimum length of the summary. Default is 200.
+## Example
+python final.py lecture.mp3 --max_length 400 --min_length 150
 
-* because of the limit of 1024 chunks size the code splits the text into 2 parts then summarize.
+## Notes
+* The script uses default values of 500 for max_length and 200 for min_length if they are not provided.
+* because of the limit of 1024 chunk size the code splits the transcription into 2 parts then do the summarization.

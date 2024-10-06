@@ -17,7 +17,9 @@ To run the script, use the following command:
 
 ## Arguments
 audio_file (required): Path to the audio file (e.g., lecture.mp3).
+
 --max_length (optional): The maximum length of the summary. Default is 500.
+
 --min_length (optional): The minimum length of the summary. Default is 200.
 ## Example
 ```python final.py lecture.mp3 --max_length 400 --min_length 150```

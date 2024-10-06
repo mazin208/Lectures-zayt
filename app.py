@@ -7,6 +7,8 @@ import os
 # Set up argparse to accept command-line arguments
 parser = argparse.ArgumentParser(description="Transcribe and summarize audio.")
 parser.add_argument('audio_file', type=str, help='Path to the audio file (e.g., EarningsCall.wav)')
+parser.add_argument('--max_length', type=int, default=500, help='Maximum length of the summary (default: 500)')
+parser.add_argument('--min_length', type=int, default=200, help='Minimum length of the summary (default: 200)')
 args = parser.parse_args()
 
 # Load Whisper model and transcribe the audio
@@ -23,7 +25,7 @@ summarizer = pipeline("summarization")
 input_text = result["text"]
 
 # Generate summary using BART
-summary = summarizer(input_text, max_length=500, min_length=200, length_penalty=2.0, num_beams=4, truncation=True)
+summary = summarizer(input_text, max_length=args.max_length, min_length=args.min_length, length_penalty=2.0, num_beams=4, truncation=True)
 
 # Print the generated summary
 print("\nGenerated Summary:\n", summary[0]['summary_text'])

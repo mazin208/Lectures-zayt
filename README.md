@@ -9,11 +9,13 @@ The script transcribes an audio file, generates a summary of the transcription, 
 To install the required libraries, you can run:
 
 
-```pip install whisper transformers torch python-docx```
+```pip install openai-whisper
+transformers
+python-docx```
 
 ## Usage
 To run the script, use the following command:
-```python final.py <audio_file> [--max_length MAX_LENGTH] [--min_length MIN_LENGTH]```
+```python app.py <audio_file> [--max_length MAX_LENGTH] [--min_length MIN_LENGTH]```
 
 ## Arguments
 audio_file (required): Path to the audio file (e.g., lecture.mp3).
@@ -22,7 +24,7 @@ audio_file (required): Path to the audio file (e.g., lecture.mp3).
 
 --min_length (optional): The minimum length of the summary. Default is 200.
 ## Example
-```python final.py lecture.mp3 --max_length 400 --min_length 150```
+```python app.py lecture.mp3 --max_length 400 --min_length 150```
 
 ## Notes
 * The script uses default values of 500 for max_length and 200 for min_length if they are not provided.

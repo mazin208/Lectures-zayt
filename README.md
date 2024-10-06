@@ -8,10 +8,8 @@ The script transcribes an audio file, generates a summary of the transcription, 
 
 To install the required libraries, you can run:
 
-
-```pip install openai-whisper
-transformers
-python-docx```
+`pip install openai-whisper
+transformers python-docx`
 
 ## Usage
 To run the script, use the following command:
